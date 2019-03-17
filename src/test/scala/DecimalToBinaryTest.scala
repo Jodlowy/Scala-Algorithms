@@ -1,4 +1,3 @@
-import org.scalatest.Matchers
 import org.scalatest._
 
 class DecimalToBinaryTest extends FlatSpec with Matchers {
@@ -34,8 +33,4 @@ class DecimalToBinaryTest extends FlatSpec with Matchers {
   "ConvertToBinaryFunctional" should "return converted binary representation of a negative number as String" in {
     DecimalToBinary.convertToBinaryFunctional(-125) shouldBe "-1111101"
   }
-
-
-
-
 }
