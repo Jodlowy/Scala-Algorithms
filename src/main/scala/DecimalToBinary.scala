@@ -29,9 +29,17 @@ object DecimalToBinary {
     n match {
       case n if n == 0 => "0"
       case n if n >= 0 => recursiveCall(n, Nil)
-      case _ => throw new IllegalArgumentException
+      case n if n < 0 => "-".concat(recursiveCall(Math.abs(n), Nil))
     }
   }
 
   private def recursiveCall(n: Int, list: List[Int]): String = if (n > 0) recursiveCall(n / 2, (n % 2) :: list) else list.mkString
+
+  def convertToBinaryFunctional(n: Int): String = {
+    n match {
+      case n if n == 0 => "0"
+      case n if n > 0 => Stream.iterate(n)(_ / 2).takeWhile(_ > 0).map(_ % 2).mkString.reverse
+      case n if n < 0 => "-".concat(Stream.iterate(Math.abs(n))(_ / 2).takeWhile(_ > 0).map(_ % 2).mkString.reverse)
+    }
+  }
 }

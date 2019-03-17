@@ -15,11 +15,27 @@ class DecimalToBinaryTest extends FlatSpec with Matchers {
     DecimalToBinary.convertToBinaryRecursive(183) shouldBe "10110111"
   }
 
-  "ConvertToBinaryRecursive" should "return IllegalArgumentException for a non positive number" in {
-    an [IllegalArgumentException] should be thrownBy DecimalToBinary.convertToBinaryRecursive(-12)
+  "ConvertToBinaryRecursive" should "return converted binary representation of a negative number as String" in {
+    DecimalToBinary.convertToBinaryFunctional(-125) shouldBe "-1111101"
   }
 
   "ConvertToBinaryRecursive" should "return binary representation for a 0 value" in {
     DecimalToBinary.convertToBinaryRecursive(0) shouldBe "0"
   }
+
+  "ConvertToBinaryFunctional" should "return binary representation for a 0 value" in {
+    DecimalToBinary.convertToBinaryFunctional(0) shouldBe "0"
+  }
+
+  "ConvertToBinaryFunctional" should "return converted binary representation of a number as String" in {
+    DecimalToBinary.convertToBinaryFunctional(183) shouldBe "10110111"
+  }
+
+  "ConvertToBinaryFunctional" should "return converted binary representation of a negative number as String" in {
+    DecimalToBinary.convertToBinaryFunctional(-125) shouldBe "-1111101"
+  }
+
+
+
+
 }
